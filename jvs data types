@@ -1,0 +1,55 @@
+let myName
+	myName="A";
+	myName="B";
+	console.log(myName); // string
+	
+	let message = "hello";
+message = 123456;
+	console.log(message); // number
+	
+	const pi =3.14;
+	 console.log(pi);
+	// console.log( 1 / 0 ); Infinity
+	// console.log("string" / 0) NaN
+	
+let BIRTHDAY="2009.12.20";
+let age;
+  console.log(age);  //age=undefined
+  
+let n=null;
+console.log(n); // null
+
+let t=true;
+console.log(t); // boolean;
+
+//typeof datas
+console.log(typeof undefined) // "undefined"
+
+console.log(typeof 0) // "number"
+
+typeof 999999999 // "bigint"
+
+typeof true // "boolean"
+
+typeof "foo" // "string"
+
+typeof Symbol("id") // "symbol"
+
+typeof Math // "object"  (1)
+
+typeof null // "object"  (2)
+
+typeof alert // "function"  (3)
+
+console.log(typeof "string" / 1) //NaN
+
+//backticks
+
+let boy="John";
+
+console.log( `hello ${1}` ); // hello 1
+
+console.log( `hello ${"boy"}` ); // helo boy
+
+console.log( `hello ${boy}` ); // hello John
+ 
