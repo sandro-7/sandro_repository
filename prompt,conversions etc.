@@ -1,0 +1,61 @@
+// alert
+
+alert("Hello World");
+
+
+//prompt
+
+result = prompt(title, [default]); 
+
+alert(result);
+
+let age = prompt('ramdeni wlis xar?', 100);
+
+
+alert(`shen xar ${age} wlis`); 
+
+
+
+//confirm
+
+let cnf = confirm("swavlob programirebas?");
+
+
+alert(cnf ); // true an false  (ok=true, cancel=false)
+
+
+
+//Conversions
+
+let value=true;
+
+value = String(value); // "true"
+
+console.log(typeof value); // string
+
+
+let ricxvi=7;
+
+ricxvi=string(ricxvi) //  "7"
+
+console.log(typeof ricxvi);
+
+
+let bul=true;
+
+bul=Number(bul); //  1
+
+
+let bul2=false;
+
+bul2=Number(bul2); //  0
+
+
+let ricxvi2=1;
+
+ricxvi2=Boolean(ricxvii2) // 1
+
+
+console.log(Boolean("hello")) //true;
+
+console.log(Boolean("")) //false;
