@@ -1,0 +1,76 @@
+//if else 
+let year = 2025;
+if(year <2015) {console.log('sworia!');}
+else if (year == 2023){
+    console.log('arasworia!');
+}
+
+else {
+    console.log('arasworia!');
+}
+
+
+let age=16;
+let message = (age > 18) ? 'Access Allowed' : 'Access Not Allowed';
+console.log(message);
+
+
+let age2 = 122;
+
+let message1 = (age2 < 3) ? 'Hi, baby!' :
+  (age2 < 18) ? 'Hello!' :
+  (age2 < 100) ? 'Greetings!' :
+  'ucnauri asakia';
+
+console.log( message1 );
+
+//operators
+
+let num1 = 2;
+let num2= 5;
+
+console.log(5%2); //1
+console.log(5**2); // 25
+console.log(num2 + 2); //7
+console.log(5**(1/2));
+
+num2++;
+console.log(num2); //6
+
+num2*=2;
+console.log(num2); //12
+
+--num2;
+console.log(num2); //11
+
+console.log(+true) // 1
+
+let vashli = "2";
+let atami = "3";
+
+console.log( vashli + atami ); //concatenation 23
+
+console.log(+vashli + +atami); 5;
+
+let a,b,c;
+
+a=b=c=2+5;
+console.log(a,b,c);
+
+
+//comparisons
+
+console.log(2>1); //true
+console.log(1>2); //false
+
+console.log( 'z' > 'a' ); // true
+console.log( 'zx' > 'za' ); // true
+console.log( 'zxx' > 'zx' ); // true
+
+console.log( '01' == 1 ); // true, 01 xdeba 1
+console.log(''==true); //false
+
+console.log( null == undefined ); // true
+console.log( null === undefined ); // false
+
+
