@@ -1,0 +1,217 @@
+//Switch
+let a = 2 + 2;
+
+switch (a) {
+case 3:
+console.log( 'naklebia' );
+break;
+case 4:
+console.log( 'sworia' );
+break;
+case 5:
+console.log( 'metia' );
+break;
+default:
+console.log("arvici" );
+} 
+// sworia,
+
+
+
+// no breaks
+a=4;
+
+switch (a) {
+case 3:
+console.log( 'naklebia' );
+
+case 4:
+console.log( 'sworia' );
+
+case 5:
+console.log( 'metia' );
+
+default:
+console.log("arvici" );
+}
+
+// sworia,metia, arvici
+
+
+
+let a = "1";
+let b = 0;
+
+switch (+a) {
+case b + 1:
+console.log("mushaobs radgan +a = b+1");
+break;
+
+default:
+alert("ar mushaobs");
+} 
+
+
+
+
+//casebis gaertianeba
+let a = 3;
+
+switch (a) {
+case 4:
+console.log('sworia');
+break;
+
+case 3: // (*) ori case ertad
+case 5:
+console.log('arasworia');
+break;
+
+default:
+console.log('ucnauria');
+}
+
+
+//cvladis tipis mnishvmneloba
+let arg ='1';
+switch (arg) {
+case '0':
+case '1':
+console.log( 'One or zero' );
+break;
+
+case '2':
+alert( 'Two' );
+break;
+
+case 3:
+console.log( 'ar mushaobs' );
+break;
+default:
+console.log( 'unknown' );
+}
+
+
+
+
+
+// Functions
+
+ function showMessage() {
+console.log("hello");
+}
+
+
+//local and global variables
+
+function function1(){
+let message="local variable";
+console.log(message);
+}
+
+function1();
+console.log(message); // doesnt show
+
+
+let name="lasha";
+
+function2(){
+ name="irakli";
+ console.log(name);
+}
+
+console.log(name); // lasha
+function2();
+console.log(name); // irakli
+
+
+// Parameters
+function sum(a,b){
+return a+b;
+}
+
+sum();
+
+
+function showMessage2(from, text) {
+
+from = '*' + from + '*'; 
+
+console.log( from + ': ' + text );
+}
+
+let from = "Ann";
+
+showMessage2(from, "Hello"); // *Ann*: Hello
+
+// from igivea, 
+console.log( from ); // Ann
+
+
+//default
+let fullName;
+function message3(firstName,lastName="anonymus"){
+ return firstName + lastName;
+console.log(fullName);
+}
+
+message3();  // irakli anonimus
+
+
+
+// alternative default
+
+function message4(text){
+text = text || 'empty');
+}
+
+
+// functions inside functions
+
+function showPrimes(n) {
+
+for (let i = 2; i < n; i++) {
+if (!isPrime(i)) continue;
+
+console.log(i); // a prime
+}
+
+}
+
+function isPrime(n) {
+for (let i = 2; i < n; i++) {
+if ( n % i == 0) return false;
+}
+return true;
+}
+
+
+
+// Function expressions
+
+function sayHi() { 
+console.log( "Hello" );
+}
+
+let func = sayHi; 
+
+func(); // Hello 
+sayHi(); // Hello 
+
+
+// callback
+function ask(question, yes, no) {
+if (confirm(question)) yes()
+else no();
+}
+
+function Ok() {
+console.log( "You agreed." );
+}
+
+function Cancel() {
+console.log( "You canceled the execution." );
+}
+
+// usage: functions Ok, Cancel are passed as arguments to ask
+ask("Do you agree?", Ok, Cancel);
