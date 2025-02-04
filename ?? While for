@@ -1,0 +1,107 @@
+//Nullish coalescing operator
+
+let saxeli;
+
+console.log( saxeli ?? "araris sheyvanili"); // araris sheyvanili
+
+let saxeli2="dato";
+console.log( saxeli2 ?? "araris sheyvanili"); // dato
+
+//shows first defined
+
+let name;
+let age;
+let lastName="topuria";
+
+console.log( name ?? lastName ?? age); // topuria;
+
+let ricxvi = 0;
+
+console.log(ricxvi || 100); // 100
+console.log(ricxvi ?? 100); // 0
+
+
+
+// WHILE and FOR
+
+
+let number=5;
+let i=0;
+while(i<5) {
+console.log(i);
+i++;
+}
+// 5 jer gamoitans
+
+
+i=0;
+
+do {
+console.log(i);
+i++;
+} while(i<5);
+
+
+
+for(i=0;i<3;i++)
+{
+console.log(i);
+}
+
+i=0;
+
+for(;i<3;i++){
+console.log(i);
+}
+
+for(; i<3;){
+console.log(i++);
+}
+
+
+
+//break;
+let sum = 0;
+
+while (true) {
+
+let value = +prompt("Enter a number", ''); //ricxvis sheyvana
+
+if (!value) break; // (*) // tu ar sheiyvana-break
+
+sum += value; // jams ar miemateba ricxvi radgan ar sheyvanila;
+
+}
+console.log( 'Sum: ' + sum );  // 0;
+
+
+// continue
+for (let i = 0; i < 10; i++) {
+
+// if true- gadasvla shemdeg iteraciaze
+if (i % 2 == 0) continue;
+
+console.log(i); // 1, 3, 5, 7, 9
+}
+
+
+// labels
+outerbrake: for(i=0;i<10;i++){
+  for(j=i;j<10;j++){
+         if(i==5 && j==7) break outerbrake;
+ }
+}
+
+
+// prime check
+let n = 10;
+
+nextPrime:
+for (let i = 2; i <= n; i++) { 
+
+for (let j = 2; j < i; j++) { //  gamyopis povna
+if (i % j == 0) continue nextPrime; // araris martivi radgan gamyopi aqvs
+}
+
+console.log( i ); // a prime
+}
