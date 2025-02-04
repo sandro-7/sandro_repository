@@ -1,0 +1,61 @@
+
+//OR
+
+let hour=13
+if ( hour<12 || hour>18) { console.log("We are Closed :(");
+}
+else {
+console.log("We are open!");
+}
+
+
+//first truthy value
+let saxeli = "";
+let gvari = "";
+let asaki= "15";
+
+console.log( saxeli || gvari || asaki|| "Anonymous"); // 15 
+
+//all falsy values
+console.log( null || 0 || undefined); //undefined (gamoaqvs bolo)
+
+
+// short-circuit
+true || console.log("hello"); // ar gamoaqvs
+false || console.log("hello"); // gamoaqvs
+
+
+// &&
+
+let hour2=13;
+ 
+if( hour>12 && hour<18) {
+console.log("giaa");
+}
+
+// first falsy value
+
+console.log( 0 && "no matter what" ); // 0
+console.log(1 && 0 && 2); //0
+
+//all truthy values
+
+console.log( 1 && 2 && 3 ); //3
+
+
+// && and ||
+if ( (1&&2) || (3 &&4) ){
+console.log("truthy couple");
+}
+
+// ! not
+
+console.log( !true ); //false;
+if(2!=1) {
+console.log("ar udris");
+}
+
+//!! conversion
+
+console.log(!!1); //true;
+console.log(!!0); //true
