@@ -1,0 +1,105 @@
+//Arrow Functions
+
+
+let triple= (a) => a*3;
+
+console.log( triple(3) );  //9
+
+let message = () = "Hello!";
+
+message(); // Hello!
+
+
+let age = (18);
+
+let welcome = (age < 18) ?
+() => alert('<18') :
+() => alert(">18");
+
+welcome();
+
+
+
+let sum = (a, b) => {  // { }  needed
+let result = a + b;
+return result; // "return" needed with { }
+};
+
+console.log( sum(1, 2) ); // 3 
+
+
+
+    // Javascript specials
+
+
+//Code structure
+  //console.log("hello");
+ 
+//Strict mode
+//'use strict'
+
+//Variables
+   //let a; 
+  //const b; // constant
+  //var=c; //older version
+
+//Interaction
+  // prompt, confirm, alert
+
+//Operators
+ // + , - , * , :  , % , || , && , ?? , ++, --,  ?
+
+//Loops
+
+// for(i = 0;i < 5; i++)
+
+//let i=0;
+ //while (i<5) {
+//console.log(i);
+//++;
+//}
+
+
+//do {
+//console.log(i);
+//i++;
+//} while(i<5);
+
+
+//The “switch” construct
+//let a = 2 + 2;
+
+//switch (a) {
+//case 3:
+//console.log( 'naklebia' );
+//break;
+//case 4:
+//console.log( 'sworia' );
+//break;
+//case 5:
+//console.log( 'metia' );
+//break;
+//default:
+//console.log("arvici" );
+//}
+
+
+//Functions
+
+//function showMessage() {
+//console.log("hello");
+//}
+
+
+//let triple= (a) => a*3;
+
+//console.log( triple(3) ); //9
+
+
+//let fullName;
+//function message3(firstName,lastName="anonymus"){
+//return firstName + lastName;
+//console.log(fullName);
+//}
+
+message3(); // irakli anonimus
