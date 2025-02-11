@@ -1,0 +1,18 @@
+let accountBalance=0;  
+function setBalance(amount){
+ return accountBalance=amount;
+}
+function getBalance(){
+console.log(accountBalance);
+}
+function deposit(amount){
+if(a&gt;0) return accountBalance+amount; 
+else { console.log(&quot;use only positive numbers&quot;);}
+}
+function withdraw(amount) {
+if (a&gt;0)  return accountBalance-amount;
+else { console.log(&quot;use only positive numbers&quot;);}
+}
+function resetBalance() {
+return accountBalance=0;
+}
