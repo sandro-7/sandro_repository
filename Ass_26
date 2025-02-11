@@ -1,0 +1,280 @@
+'use strict'
+//date and time
+
+let tarigi = new Date();
+console.log(tarigi); 
+
+let ian01_1970 = new Date(0);
+console.log(ian01_1970);
+
+let ian03_1970 = new Date(2 * 24 * 3600 * 1000); // 3 ianvari, 1970
+console.log(ian03_1970);
+
+let ian1_1971 = new Date(366*24 * 3600 * 1000); // 1 wlis mimateba
+console.log(ian1_1971);
+
+// new Date(year, month, date, hours, minutes, seconds, ms)
+
+let tarigi2 = new Date("2025-1-8-12-30-45-10"); // 2025 wlis 8 ianvari, 12:30:45 
+console.log(tarigi2);
+
+// getFullYear, getMonth, getDate(dge), getDay(kviris dge), getHours, getMinutes, getSeconds, getUTC...
+// getTime, getTimezoneOffset (wutebshi UTC gansxvaveba )
+
+let date1 = new Date();
+console.log(getMonth.date());
+
+// setting the dates
+setFullYear(year, [month], [date])
+setMonth(month, [date])
+setDate(date)
+setHours(hour, [min], [sec], [ms])
+setMinutes(min, [sec], [ms])
+setSeconds(sec, [ms])
+setMilliseconds(ms)
+setTime(milliseconds)
+
+
+let dges = new Date();
+dges.setFullyear(2025,3,11);
+dges.setHours(13,25,30,10);
+console.log(dges);
+
+//Autocorecction
+let date3 = new Date(2016, 3, 1);
+date.setDate(date.getDate() + 2);
+
+console.log( date3 ); // 3 Mar 2016
+
+//Date to numbers
+let date4 = new Date();
+console.log(+date4) // miliwamebis odenoba
+
+let start = new Date(); // start shegvidzlia gamoviyenot Date.now()
+
+// do the job
+for (let i = 0; i < 1; i++) {
+let double = i*i;
+}
+
+let end = new Date(); // end shegvidzlia gamoviyenot Date.now()
+
+let day1;
+day1=(+end)-(+start):1000:3600:24;
+alert( `The loop took ${end - start} ms` );
+
+
+let date5 = new Date( Date.parse('2012-01-26T13:51:50.417-07:00') );
+
+console.log(date5);
+
+//Objects
+
+let user = new Object();
+let user = {
+name: "Bidzina",
+lastName: "Tabagari",
+age: 60;
+password: "tabo123",
+isAdmin: true,
+"is policeman": true,
+};
+
+console.log(user.name);
+
+delete user.password;
+
+console.log(user["is policeman"]); // true
+let key1="is policeman";
+
+user[key1] = true;
+
+
+let fruit = prompt("xili?", "banani");
+
+let bag = {
+[fruit]: 5,
+};
+
+console.log( bag.banani ); // 5 if fruit="banani"
+
+
+function UserCreation(saxeli,asaki) {
+return {
+name: saxeli,
+age: asaki,
+}
+}
+
+let user2 = UserCreation(joni, 20);
+console.log(user2.name);
+
+let user3 = {
+name:lasha,
+age:15
+}
+
+console.log("age" in user); // true
+console.log("sdasu" in user); // false
+
+let user4 = {
+name:gio,
+age:20
+}
+
+for(let prop in user4)
+{
+console.log(prop);
+console.log(user4[prop]);
+}
+
+let kodebi = {
+"+49": germania,
+"+47": dania,
+"1": saqartvelo,
+"2": espaneti
+}
+
+for (let kodi in kodebi){
+console.log(+kodi);
+console.log(kodebi[kodi]);
+
+}
+
+//Methods of primitives
+
+let user5 = {
+name: "gio",
+sayHi: function() {
+console.log("gamarjoba!");
+}
+};
+
+user5.sayHi(); // gamarjoba!;
+
+
+
+
+//Numbers
+
+console.log(Math.trunc(5.9)); // 5
+console.log(Math.ceil(5.9)); // 6
+console.log(Math.floor(5.9)); // 5
+console.log(Math.round(5.9)); // 6
+console.log(Math.round(5.1)); // 5
+console.log(Math.random() );
+
+console.log(Math.max(3,5,10,1,-2) ); // 10
+console.log(Math.min(3,5,10,1,-2) ); //-2
+console.log(Math.pow(2,3) ); //8 
+
+let num = 255;
+
+console.log( num.toString(16) ); // ff 
+console.log( num.toString(2) ); // 11111111
+
+let randomNumber(Math.random() *100).toFixed(); // random number generator (0-100)
+let pi =3.145453;
+console.log(+pi.toFixed(2) ); // 3.14
+console.log(4.5e9); // 4_500_000_000
+console.log(3e-4); // 0.0003
+
+//Number.isNan Number.isFinite
+
+console.log( Number.isNaN(NaN) ); // true
+console.log( Number.isNaN("string" / 2) ); // true
+console.log( Number.isNaN("string") ); // false
+console.log( isNaN("string") ); // true
+
+
+console.log( Number.isFinite(100) ); // true
+console.log( Number.isFinite(Infinity) ); // false
+console.log( Number.isFinite(2 / 0) ); // false
+
+console.log( Number.isFinite("100") ); // false
+console.log( isFinite("100") ); // true (ricxvad gadayavs)
+
+//Object.is
+Object.is(1,2); // false (1!=2)
+
+//parseInt, parseFloat
+console.log( ( parseInt('123px') ); // 123
+console.log( ( parseFloat('11.7em') ); // 11.7
+
+console.log( ( parseInt('3.14') ); // 3 
+console.log( ( parseFloat('3.14.7') ); // 3.14
+
+
+
+
+
+
+
+
+
+// Strings
+let string1='single-quotes';
+let string2="double-quotes";
+let string3=`2`;
+
+console.log(`string3 + ${3}`);
+
+// \n= enter
+console.log("one \n two \n three");
+
+
+console.log("interface".toUpperCase() );
+
+str='hello and goodbye'
+console.log(str.indexOf('hello') ); // 0
+
+console.log('hello and goodbye'.includes('and') ); // true
+console.log('hello and goodbye'.includes('and', 4) ); // false
+console.log('hello and goodbye'.startsWith('and') ); // false
+console.log("goodbye".slice(0,5) ); // goodb
+
+let str1 = "gamarjoba";
+console.log(str1.length);
+
+let str2 = "hello";
+console.log(str2[0]); // h
+console.log(str2.at[0]); // h
+
+console.log(str2[str2.length-1]); // o
+console.log(str2.at[-1]); // o
+
+for (let char of "Hello") {
+console.log(char); // H,e,l,l,o 
+}
+
+let str7 = "gamarjoba";
+console.log( str.slice(0, 5) ); // gamar
+console.log( str.slice(0, 1) ); // g
+
+let str7 = "gamarjoba";
+console.log( str.slice(2) ); // marjoba
+
+let str7 = "gamarjoba";
+
+console.log( str.slice(-4, -1) ); // job
+
+console.log( 'a' > 'Z' ); // true
+console.log( 'A' > 'Z' ); // true
+console.log( 'Österreich' > 'Zealand' ); // true
+
+
+// different case letters have different codes
+console.log( "Z".codePointAt(0) ); // 90
+console.log( "z".codePointAt(0) ); // 122
+console.log( "z".codePointAt(0).toString() ); // "90"
+
+
+console.log( String.fromCodePoint(90) ); // Z
+
+
+console.log( 'Zealandddd'.localeCompare('Zealand') ); // 1
+
+let str8 = " programming ";
+
+str8.trim();
+str8.repeat(2); // programmingprogramming
