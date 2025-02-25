@@ -1,0 +1,125 @@
+<-- index/html !-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style.css">
+  </head>
+
+
+  <body>
+    <p style="color:#6559cf" id="p1" > hello world</p>
+
+ <h1 id="heading1" class="header">Welcome</h1>
+<h2  id="heading2">header 2</h2>
+<h3 id="third-heading">header 3</h3>
+
+<p id="p2" class="text"  title="This is paragraph 2">gamarjoba es aris programireba</p>
+<p id="p3" class="text">paragrapi 3<a href="https://www.example.com" id="link1">link</a>.</p>
+
+<img id="image1" src="https://via.placeholder.com/300x200.png?text=Image+1" alt="Image 1" width="300" height="200">
+    <img id="image2" src="https://via.placeholder.com/300x200.png?text=Image+2" alt="Image 2" width="300" height="200">
+
+
+<ul id="list1">
+ <li id="item1">Item 1</li>
+  <li id="item2">Item 2</li>
+ <li id="item3">Item 3</li>
+</ul>
+<ol id="ordered-list">
+ <li>ol item 1</li>
+<li>ol item 2</li>
+</ol>
+
+
+<a href="https://www.google.com" id="googlelink">google</a>
+<a href="https://www.facebook.com" id="fblink">facebook</a>
+
+
+<div id="div1" class="container" style="background-color: lightgrey;">
+<p>ragaca divshi</p>
+ </div>
+<section id="section1">
+<h2>Header</h2>
+<p>this is a section with a paragraph.</p>
+</section>
+
+
+
+    <script src="src/script.js"></script>
+  </body>
+</html>
+
+
+
+
+
+// script.js
+
+const par1 = document.getElementById("p1");
+//console.log(par1);
+console.log(par1.getAttribute('id')); // p1
+console.log(par1.hasAttribute('alt'));// false
+console.log(par1.setAttribute("style", "color: red;"))
+
+
+const par2 = document.getElementById("p2");
+const heading1 = document.getElementById("heading1");
+const heading2 = document.getElementById("heading2");
+const link = document.getElementById("link1");
+const image1 = document.getElementById("image1");
+const form = document.getElementById("form1");
+
+
+console.log(par1.getAttribute('id')); 
+console.log(par2.getAttribute('title')); 
+console.log(heading1.getAttribute('class')); 
+console.log(image1.getAttribute('src')); 
+
+heading1.setAttribute('id', 'meoere heading'); 
+heading1.setAttribute('style', 'color: green;'); 
+
+///console.log(par1.hasAttribute('style')); 
+//console.log(par2.hasAttribute('alt')); 
+
+
+image1.setAttribute('src', 'newimage.jpg');
+
+
+
+link.setAttribute('href', 'https://www.youtube.com/'); 
+
+
+console.log(form.hasAttribute('action')); 
+
+
+
+
+const username = document.getElementById("username");
+const password = document.getElementById("password");
+console.log(username.getAttribute('name')); 
+console.log(password.getAttribute('name')); 
+
+
+
+const listItem1 = document.getElementById("list-item-1");
+console.log(listItem1.getAttribute('id')); 
+listItem1.setAttribute('style', 'color: red;'); 
+
+
+
+
+
+const div1 = document.getElementById("div1");
+div1.setAttribute('style', 'background-color: lightgreen; padding: 10px;');
+
+
+console.log(document.getElementById("fblink").hasAttribute('href')); 
+console.log(document.getElementById("googlelink").getAttribute('href')); 
+
+
+document.getElementById("ordered-list").setAttribute('class', 'ol new class');
+document.getElementById("section1").setAttribute('id', 'new-section-id');
