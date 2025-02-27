@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom</title>
+    <link rel="stylesheet" href="src/style.css">
+  </head>
+  <body>
+
+    <h1 id="mainTitle">Welcome</h1>
+
+    <p id="para1">paragrapi 1</p>
+    <p class="text">paragrapi 2</p>
+    <p class="text">paragrapi 3</p>
+
+    <div id="box1">box 1</div>
+    <div id="box2">box 2</div>
+
+    <ul id="myList">
+      <li class="list-item">Item 1</li>
+      <li class="list-item">Item 2</li>
+      <li class="list-item">Item 3</li>
+      <li class="list-item">Item 4</li>
+    </ul>
+
+    
+
+    <p id="extra1">paragraph 1</p>
+    <p id="extra2"> paragraph 2</p>
+
+    <script src="src/script.js"></script>
+  </body>
+</html>
+
+
+<!-- js -->
+
+let title = document.getElementById("mainTitle");
+console.log(title);
+title.style.fontSize = "30px";
+
+let paragraphs = document.getElementsByClassName("text");
+console.log(paragraphs);
+for (let p of paragraphs) {
+  p.style.color = "blue";
+}
+
+let allParagraphs = document.getElementsByTagName("p");
+console.log(allParagraphs);
+for (let para of allParagraphs) {
+   para.style.marginLeft = "10px";
+}
+
+let firstItem = document.querySelector(".list-item");
+  console.log(firstItem);
+firstItem.style.fontWeight = "bold";
+
+let allItems = document.querySelectorAll(".list-item");
+ console.log(allItems);
+
+
+let box1 = document.getElementById("box1");
+let box2 = document.getElementById("box2");
+box1.style.backgroundColor = "lightgray";
+box2.style.backgroundColor = "lightgray";
+
+
+<!-- css -->
+
+#mainTitle 
+#para1 
+.text 
+#box1 
+#box2 
+#myList 
+.list-item 
+#inputField 
+#extra1 
+#extra2 
