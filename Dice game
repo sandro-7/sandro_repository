@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+    <style>
+      * {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+
+      .header1 {
+        text-align: center;
+        color: aquamarine;
+      }
+
+      .header2 {
+        text-align: center;
+        color: aquamarine;
+      }
+
+      .header3 {
+        text-align: center;
+        color: aquamarine;
+      }
+
+.starterImage {
+  display:none;
+}
+
+.image1 {
+display:none;
+}
+
+.image2 {
+display:none;
+}
+
+.image3 {
+display:none;
+}
+
+.image4 {
+display:none;
+}
+
+.image5 {
+display:none;
+}
+
+.image6 {
+display:none;
+}
+    </style>
+  </head>
+  <body>
+    <h1 class="header1">Player 1 Wins!</h1>
+    <h1 class="header2">Player 2 Wins!</h1>
+    <h1 class="header3">Draw!</h1>
+
+    <figure>
+     <figure><img class="starterImage" src="https://img-c.udemycdn.com/redactor/raw/2018-11-03_02-33-30-e969152f9728c3403db9258047ee2105.png"></figure><p><br></p>
+ <img class="image1" src="images/image1.png">
+<img class="image2" src="images/image2.png">
+<img class="image3" src="images/image3.png">
+<img class="image4" src="images/image4.png">
+<img class="image5" src="images/image5.png">
+<img class="image6" src="images/image6.png">
+
+
+
+
+    <script>
+      let randomNumber1 = Math.trunc(Math.random() * 6) + 1;
+      console.log(randomNumber1);
+      let randomNumber2 = Math.trunc(Math.random() * 6) + 1;
+      console.log(randomNumber2);
+
+      let dice1 = randomNumber1;
+      let dice2 = randomNumber2;
+
+      let header1 = document.getElementsByClassName("header1")[0];
+      let header2 = document.getElementsByClassName("header2")[0];
+      let header3 = document.getElementsByClassName("header3")[0];
+
+      if (dice1 > dice2) {
+        header2.style.display = 'none';
+        header3.style.display = 'none';
+      }
+      if (dice1 < dice2) {
+        header1.style.display = 'none';
+        header3.style.display = 'none';
+      }
+      if (dice1 == dice2) {
+        header2.style.display = 'none';
+        header1.style.display = 'none';
+      }
+    </script>
+  </body>
+</html>
