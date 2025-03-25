@@ -1,0 +1,94 @@
+async function getWeather() {
+    const city = document.getElementById("cityInput").value;
+    const apiKey = "YOUR_API_KEY"; // Replace with your WeatherAPI key
+    const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("City not found");
+        }
+        const data = await response.json();
+        document.getElementById("weatherResult").innerHTML = `
+          <h2>${data.location.name}</h2>
+          <p>${data.current.temp_c}°C</p>
+            <p>${data.current.condition.text}</p>
+        `;
+    } catch (error) {
+        document.getElementById("weatherResult").innerHTML = `<p style="color: red;">${error.message}</p>`;
+    }
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+input {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#weatherResult {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+
+
+
+
+async function getWeather() {
+    const city = document.getElementById("cityInput").value;
+    const apiKey = "YOUR_API_KEY"; // Replace with your WeatherAPI key
+    const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("City not found");
+        }
+        const data = await response.json();
+        document.getElementById("weatherResult").innerHTML = `
+          <h2>${data.location.name}</h2>
+          <p>${data.current.temp_c}°C</p>
+            <p>${data.current.condition.text}</p>
+        `;
+    } catch (error) {
+        document.getElementById("weatherResult").innerHTML = `<p style="color: red;">${error.message}</p>`;
+    }
+}
+
+
+
+
+{
+  "dependencies": {}
+}
