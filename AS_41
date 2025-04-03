@@ -1,0 +1,20 @@
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.use(express.json());
+
+
+app.get('/', (req, res) => {
+  res.status(200).send('Welcome to the Home Page!');
+});
+
+
+app.get('/users', (req, res) => {
+       res.status(200).json({ users: ['Alice', 'Bob', 'Charlie'] });
+});
+
+app.get('/users/:id', (req, res) => {
+   const userId = req.params.id;
+    res.status(200).json({ user: `User with ID ${userId}` });
+});
