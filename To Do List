@@ -1,0 +1,136 @@
+//html
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+   <meta charset="UTF-8">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>To-Do List</h1>
+
+  <form action="/add" method="POST">
+    <input type="text" name="task" placeholder="შეიყვანე დავალება" required>
+    <button type="submit">დამატება</button>
+  </form>
+
+  <% if (todos.length === 0) { %>
+    <p>დავალებები არ არის.</p>
+  <% } else { %>
+    <% todos.forEach(todo => { %>
+      <div class="todo">
+       <span><%= todo.text %></span>
+       <form action="/delete" method="POST">
+        <input type="hidden" name="id" value="<%= todo.id %>">
+          <button class="delete-btn">წაშლა</button>
+        </form>
+      </div>
+    <% }) %>
+  <% } %>
+</body>
+</html>
+
+
+
+//app.js
+const express = require('express');
+const app = express();
+const port = 3000;
+
+
+let todos = [];
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public')); 
+
+
+app.set('view engine', 'ejs');
+
+
+app.get('/', (req, res) => {
+  
+  res.render('index',  todos});
+});
+
+
+app.post('/add', (req, res) => {
+  const taskText = req.body.task;
+ 
+  res.redirect('/');
+});
+
+
+app.listen(port, () => {
+  console.log(`სერვერი გაშვებულია: http://localhost:${port}`);
+});
+
+
+
+//css
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f7f7;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  color: #333;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #444;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  padding: 10px 16px;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.delete-btn {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f;
+}
