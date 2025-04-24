@@ -1,0 +1,253 @@
+register.js
+const express = require('express');
+const router=express.Router();
+const fs = require('fs');
+const bcrypt = require('bcryptjs');
+
+const USERS_FILE = '../users.json';
+
+router.get( '/', function(req, res) {
+res.render( 'register',  { error: null });
+
+});
+
+router.post( '',  function (req , res) {
+    const {email,password,confirmPassword} = req.body;
+
+
+    if (confirmPassword !== password) {
+    res.render('register', {error : "Passwords do not match"});
+}
+    const data = fs.readFileSync(USERS_FILE);
+    const parsedData = JSON.parse(data);
+    const users =[];
+
+    if (password.length < 8) {
+        return res.render('register', {error: "Password should contain 8 characters"})
+    }
+    const salt = bcrypt.genSaltSync(10);
+    const hashedpassword = bcrypt.hashSync(password, salt);
+
+
+    users.push({email,password: hashedpassword});
+    fs.writeFileSync('USERS_FILE, JSON.stringify(users,null,2');
+
+     req.session.user = {email}
+
+    res.redirect('/blogs');
+
+});
+
+module.exports = router;
+
+
+
+
+
+
+app.js
+const createError = require('http.errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const session = require("express-ession");
+
+const indexRouter = require('.routes/index');
+const usersRouter = require('.routes/users');
+const loginRouter = require('.routes/login');
+const registerRouter = require('.routes/register');
+const blogsRouter = require('.routes/blogs')
+const logoutRouter = require('.routes/logout')
+
+
+const app = expres();
+
+//view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false}));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(session( {
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure:false }
+}));
+
+
+app.use('/',indexRouter);
+app.use('/users',usersRouter);
+app.use('/login',loginRouter);
+app.use('/register', registerRouter);
+app.use('/blogs',blogsRouter);
+app.use('/logout',logoutRouter);
+
+//catch 404 and forward to error handler
+app.use(function (req,res,next) {
+    next(createError(404));
+});
+
+// error handler
+app.use(function(err,req,res,next){
+    //set loacls, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
+});
+
+module.exports = app;
+
+
+
+
+
+blogs.js
+const express = require('express');
+const router = express.Router();
+
+const requireAuth = (req, res, next) => {
+    if (req.session.user) {
+        next ()
+    } else {
+        res.redirect('/login')
+    }
+}
+
+
+router.get('/',requireAuth,  function(req, res, next) {
+
+ res.render('blogs', );
+});
+
+module.exports = router;
+
+
+blogs.ejs
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <link rel="stylesheet" href="./stylesheets/auth.css">
+</head>
+<body>
+<h2>All blogs</h2>
+
+<a href="/logout">Log out</a>
+</body>
+</html>
+
+
+
+logout.js
+const express = require('express');
+const router = express.Router();
+
+
+router.get('/', function(req, res, next) {
+    req.session.destroy(function(err) {
+   if (err) {
+       console.error("Error destroying session", err) ;
+   }
+   res.redirect('/login')
+    })
+});
+
+module.exports = router;
+
+
+
+
+login.ejs
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="./stylesheets/auth.css">
+</head>
+<body>
+<div class="form-container">
+    <h1>Login</h1>
+        <% if (error) { %>
+    <p class="error"> <%= error %> </p>
+    <%> } %>
+
+    <form action="/login" method="POST">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="/register">Register here</a>.</p>
+</div>
+
+
+</body>
+</html>
+
+
+
+index.js
+var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+    res.render('index', { title: 'Web I Final Project' });
+});
+
+module.exports = router;
+
+
+
+
+logins.js
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcryptjs');
+
+const USERS_FILE = '../users.json';
+
+
+router.get( '/', function(req, res) {
+   if (req.session.user) {
+       return res.redirect( '/dashboard');
+}
+   res.render('login',{ error: null});
+});
+
+router.post ('/login', function(req,res) {
+    const {email, password} = req.body;
+
+    const data = fs.readFileSync(USERS_FILE);
+    const users = JSON.parse(data);
+
+    const user = users.find( user => user.email === email);
+
+    if (!user || !bcrypt.compareSync("password",user.password)) {
+        return res.render('/login' { error:'Invalid email or password'})
+    }
+
+    req.session.user = {email: user.email}
+
+    res.redirect('/blogs')
+
+)}
+
+module.exports = router;
+
+
+
+
+
+
